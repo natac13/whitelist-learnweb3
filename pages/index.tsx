@@ -116,6 +116,7 @@ export default function Home() {
         signer
       );
       // Get the address associated to the signer which is connected to  MetaMask
+      //@ts-expect-error this is fine
       const address = await signer.getAddress();
       // call the whitelistedAddresses from the contract
       const _joinedWhitelist = await whitelistContract.whitelistedAddresses(
@@ -188,6 +189,7 @@ export default function Home() {
       });
       connectWallet();
     }
+    // eslint-disable-next-line
   }, [walletConnected]);
 
   return (
@@ -209,6 +211,7 @@ export default function Home() {
           {renderButton()}
         </div>
         <div>
+          {/* eslint-disable-next-line */}
           <img className={styles.image} src="./crypto-devs.svg" />
         </div>
       </div>
